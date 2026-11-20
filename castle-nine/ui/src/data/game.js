@@ -1,4 +1,5 @@
-const asset = (p) => `${import.meta.env.BASE_URL}${p}`
+const CDN = 'https://cdn.jsdelivr.net/gh/456820ab-gif/gbjy@7bacd18/castle-nine/ui/dist/'
+export const asset = (p) => (import.meta.env.PROD ? `${CDN}${p}` : `${import.meta.env.BASE_URL}${p}`)
 
 // 玩家可选外观（只影响头像，不影响数值）
 export const appearances = [

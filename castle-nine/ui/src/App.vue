@@ -98,9 +98,7 @@ import NightScene from './components/NightScene.vue'
 import BreachScene from './components/BreachScene.vue'
 import SidePanel from './components/SidePanel.vue'
 import NpcPanel from './components/NpcPanel.vue'
-import { npcs, jobs, rooms, initialState } from './data/game.js'
-
-const asset = (p) => `${import.meta.env.BASE_URL}${p}`
+import { npcs, jobs, rooms, initialState, asset } from './data/game.js'
 
 const mode = ref('opening')
 const state = reactive(Object.assign(structuredClone(initialState), window.__castleInitialState || {}))
