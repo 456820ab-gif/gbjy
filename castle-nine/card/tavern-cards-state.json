@@ -1,0 +1,214 @@
+{
+  "projectName": "古堡九夜",
+  "worldbookName": "古堡九夜",
+  "form": "charactercard",
+  "mvu": true,
+  "entryManifest": {
+    "系统": {
+      "规则": {
+        "path": "世界书/系统/规则.txt",
+        "part": "worldview",
+        "keywords": [],
+        "abstract": "单人古堡规则：昼夜、门、怪物、NPC、数值边界",
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 10
+        }
+      }
+    },
+    "MVU": {
+      "[InitVar]请勿打开": {
+        "path": "世界书/变量/initvar.yaml",
+        "part": "initvar",
+        "keywords": [],
+        "abstract": "初始 $game 空壳",
+        "enabled": false,
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 70
+        }
+      }
+    }
+  },
+  "typeLists": {
+    "before_char": [
+      "世界观",
+      "扮演准则",
+      "时间线",
+      "地理"
+    ],
+    "after_char": [
+      "角色",
+      "NPC"
+    ],
+    "depth": [
+      "事件",
+      "MVU"
+    ]
+  },
+  "strategyThresholds": {
+    "角色": {
+      "basic": {
+        "threshold": 5,
+        "required": true
+      },
+      "other": {
+        "threshold": 2,
+        "required": false
+      },
+      "personality": {
+        "threshold": 2,
+        "required": true
+      },
+      "tri_faceted": {
+        "threshold": 2,
+        "required": false
+      }
+    },
+    "事件": 0,
+    "地理": {
+      "faction": {
+        "threshold": 4,
+        "required": false
+      },
+      "region": {
+        "threshold": 4,
+        "required": false
+      },
+      "scene": {
+        "threshold": 4,
+        "required": false
+      }
+    },
+    "MVU": {
+      "initvar": {
+        "threshold": null,
+        "required": false
+      },
+      "output_format": {
+        "threshold": "Infinity",
+        "required": false
+      },
+      "update_rules": {
+        "threshold": "Infinity",
+        "required": false
+      },
+      "variable_list": {
+        "threshold": "Infinity",
+        "required": false
+      }
+    },
+    "NPC": 0,
+    "扮演准则": "Infinity",
+    "时间线": {
+      "history": {
+        "threshold": "Infinity",
+        "required": false
+      },
+      "plot": {
+        "threshold": "Infinity",
+        "required": false
+      }
+    },
+    "世界观": "Infinity"
+  },
+  "partOrder": {
+    "角色": [
+      "basic",
+      "personality",
+      "tri_faceted",
+      "other"
+    ],
+    "地理": [
+      "region",
+      "scene",
+      "faction"
+    ],
+    "MVU": [
+      "variable_list",
+      "update_rules",
+      "output_format",
+      "initvar"
+    ],
+    "时间线": [
+      "history",
+      "plot"
+    ]
+  },
+  "depth_defaults": {
+    "role": "system",
+    "depth": 0
+  },
+  "description": "你在一座会每天重排房间的古堡里醒来。白天出门搜刮、修门、找还留在古堡里的人；夜里守住门，或者赌命出门。门有四个部件，怪物分工明确：有的只砸门，有的专杀你。八个 NPC 分善良与中立，只在白天出现。",
+  "first_messages": [
+    "开场白/0.md"
+  ],
+  "creator": "castle-nine",
+  "creator_notes": "单人游戏。九职业任选，四维总和 24。建议横屏游玩。数值由同层前端结算，LLM 只负责叙事。",
+  "version": "0.1.0",
+  "create_date": "2026-11-20",
+  "tags": [
+    "游戏",
+    "恐怖",
+    "单人",
+    "古堡",
+    "生存"
+  ],
+  "regex_scripts": {
+    "游戏界面": {
+      "id": "59df44bf-2352-4190-a4fe-0fb193bd4e6f",
+      "findRegex": "<CastleNineStart/>",
+      "replace_file": "正则/游戏界面.html",
+      "trimStrings": [],
+      "placement": [
+        2
+      ],
+      "disabled": false,
+      "markdownOnly": true,
+      "promptOnly": false,
+      "runOnEdit": true,
+      "substituteRegex": 0
+    },
+    "对AI隐藏游戏界面": {
+      "id": "c321afd2-3833-42d2-a660-de400425262d",
+      "findRegex": "<CastleNineStart/>",
+      "replaceString": "",
+      "trimStrings": [],
+      "placement": [
+        2
+      ],
+      "disabled": false,
+      "markdownOnly": false,
+      "promptOnly": true,
+      "runOnEdit": true,
+      "substituteRegex": 0
+    }
+  },
+  "extensions": {
+    "tavern_helper": {
+      "scripts": {
+        "MVU": {
+          "type": "script",
+          "script_file": "脚本/MVU.txt",
+          "enabled": true,
+          "id": "43a21a7c-bbe9-46e0-8ec1-29efed99df05",
+          "info": "",
+          "data": {},
+          "button": {
+            "buttons": [],
+            "enabled": true
+          }
+        }
+      }
+    }
+  },
+  "avatar": "avatar.png"
+}
