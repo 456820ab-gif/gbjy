@@ -138,8 +138,26 @@ function persist() {
     const getId = host.getCurrentMessageId || window.getCurrentMessageId
     const messageId = getId ? getId() : 'latest'
     const data = mvu.getMvuData({ type: 'message', message_id: messageId })
+    const room = rooms.find(r => r.id === state.visited)
+    const jobName = job.value?.name ?? '未选'
+
     data.stat_data = data.stat_data || {}
     data.stat_data.$game = JSON.parse(JSON.stringify(state))
+    data.stat_data._状态 = {
+      HP: state.hp,
+      门破: state.gate.plate <= 0,
+      怪物类型: state.night.monsters.map(m => m.type),
+      夜数: state.day,
+      职业: jobName,
+      位置: room?.name ?? '',
+    }
+    data.stat_data._投影 = [
+      `第${state.day}天 ${state.time} ${state.phase} · ${room?.name ?? ''}`,
+      `HP ${state.hp}/${state.hpMax} 体力 ${state.stamina}/${state.staminaMax} 恐惧 ${state.fear}/10 铜扣${state.copper} 夜露${state.dew}`,
+      `门：门板${state.gate.plate} 门轴${state.gate.hinge} 门闩${state.gate.bolt} 门框${state.gate.frame}`,
+      `职业：${jobName}`,
+      `最近：${state.log.slice(-2).join('；')}`,
+    ].join('\n')
     mvu.replaceMvuData(data, { type: 'message', message_id: messageId })
   } catch (error) {
     console.warn('[castle-nine] MVU 写入失败', error)
