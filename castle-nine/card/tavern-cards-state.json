@@ -471,5 +471,15 @@
       }
     }
   },
-  "avatar": "avatar.png"
+  "avatar": "avatar.png",
+  "zod": {
+    "scriptName": "Zod",
+    "scriptId": "f526c8c2-ef58-400a-a56c-8ce0811ac9aa",
+    "schemaPath": "schema.ts",
+    "importUrl": "https://testingcf.jsdelivr.net/gh/StageDog/tavern_resource/dist/util/mvu_zod.js",
+    "button": {
+      "buttons": [],
+      "enabled": true
+    }
+  }
 }
