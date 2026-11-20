@@ -5,11 +5,11 @@
   "mvu": true,
   "entryManifest": {
     "系统": {
-      "规则": {
-        "path": "世界书/系统/规则.txt",
+      "世界观": {
+        "path": "世界书/系统/世界观.txt",
         "part": "worldview",
         "keywords": [],
-        "abstract": "单人古堡规则：昼夜、门、怪物、NPC、数值边界",
+        "abstract": "古堡、单人、NPC、基调",
         "enabled": true,
         "strategy": {
           "type": "constant"
@@ -19,6 +19,267 @@
           "role": "system",
           "depth": 0,
           "order": 10
+        }
+      },
+      "核心规则": {
+        "path": "世界书/系统/核心规则.txt",
+        "part": "rules",
+        "keywords": [],
+        "abstract": "昼夜、门、资源、胜利、怪物分工",
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 12
+        }
+      },
+      "叙事边界": {
+        "path": "世界书/系统/叙事边界.txt",
+        "part": "rules",
+        "keywords": [],
+        "abstract": "LLM 只叙事，不改数值",
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 14
+        }
+      },
+      "操作说明": {
+        "path": "世界书/系统/操作说明.txt",
+        "part": "rules",
+        "keywords": [],
+        "abstract": "面板操作与聊天边界",
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 16
+        }
+      },
+      "升级与注视": {
+        "path": "世界书/系统/升级与注视.txt",
+        "part": "rules",
+        "keywords": [
+          "升级",
+          "门板",
+          "门轴",
+          "门闩",
+          "门框",
+          "炉压",
+          "注视",
+          "施工"
+        ],
+        "abstract": "门部件、床灯炉、注视公式",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 20
+        }
+      },
+      "当前状态": {
+        "path": "世界书/系统/当前状态.txt",
+        "part": "rules",
+        "keywords": [],
+        "abstract": "面板写入的当前状态投影（宏注入）",
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 18
+        }
+      }
+    },
+    "职业": {
+      "九职业": {
+        "path": "世界书/职业/九职业.txt",
+        "part": "role",
+        "keywords": [
+          "职业",
+          "推演者",
+          "修补匠",
+          "守夜人",
+          "扛门人",
+          "拆墙者",
+          "嗅探者",
+          "无梦者",
+          "拾遗者",
+          "守墓人"
+        ],
+        "abstract": "九职业的被动、主动、弱点、专属",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 22
+        }
+      }
+    },
+    "怪物": {
+      "怪物图鉴": {
+        "path": "世界书/怪物/怪物图鉴.txt",
+        "part": "monster",
+        "keywords": [
+          "怪物",
+          "叩门者",
+          "剥墙兽",
+          "无面客",
+          "烛泪",
+          "裂口者",
+          "饲影者",
+          "钉墙者",
+          "拾骨者",
+          "缠足",
+          "数息者",
+          "守门犬",
+          "犬形",
+          "低语者",
+          "第九位"
+        ],
+        "abstract": "15 种怪物的分工、行为、反制",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 24
+        }
+      }
+    },
+    "NPC": {
+      "NPC名录": {
+        "path": "世界书/NPC/NPC名录.txt",
+        "part": "npc",
+        "keywords": [
+          "NPC",
+          "老医者",
+          "守夜老人",
+          "厨娘",
+          "失忆工匠",
+          "当铺老板",
+          "面具商人",
+          "占卜师",
+          "拾荒者"
+        ],
+        "abstract": "八名 NPC 的阵营、服务、口头禅",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 26
+        }
+      }
+    },
+    "地理": {
+      "房间池": {
+        "path": "世界书/地理/房间池.txt",
+        "part": "region",
+        "keywords": [
+          "房间",
+          "长餐桌厅",
+          "洗衣房",
+          "锅炉房",
+          "储藏室",
+          "书房",
+          "钟楼",
+          "马厩",
+          "温室",
+          "标本室",
+          "档案室",
+          "礼拜堂",
+          "镜厅",
+          "画廊",
+          "地窖",
+          "厨房",
+          "塔顶",
+          "地下墓室",
+          "祭坛",
+          "血温室",
+          "囚室",
+          "溺井",
+          "无光厅",
+          "第九间房",
+          "门厅"
+        ],
+        "abstract": "24 间房的名称、风险、品阶倾向、陈设",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 28
+        }
+      }
+    },
+    "道具": {
+      "道具与品阶": {
+        "path": "世界书/道具/道具与品阶.txt",
+        "part": "item",
+        "keywords": [
+          "道具",
+          "品阶",
+          "尘",
+          "锈",
+          "蜡",
+          "骨",
+          "瞳",
+          "无名",
+          "守夜灯",
+          "蜡泪屏风",
+          "蜡像替身",
+          "旧猎夹",
+          "急救包",
+          "血瓶",
+          "烟幕弹",
+          "猎刀",
+          "镜面屏",
+          "保险箱"
+        ],
+        "abstract": "六阶品阶与关键道具",
+        "enabled": true,
+        "strategy": {
+          "type": "selective"
+        },
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 4,
+          "order": 30
         }
       }
     },
@@ -147,7 +408,7 @@
     "role": "system",
     "depth": 0
   },
-  "description": "你在一座会每天重排房间的古堡里醒来。白天出门搜刮、修门、找还留在古堡里的人；夜里守住门，或者赌命出门。门有四个部件，怪物分工明确：有的只砸门，有的专杀你。八个 NPC 分善良与中立，只在白天出现。",
+  "description": "你是古堡里唯一的住客。\n\n每天 08:00 天亮，20:00 天黑。白天古堡会重新排列房间，你可以出门搜刮、修门、找还留在古堡里的八个 NPC；夜里守住门，或者赌命出门。\n\n门有四个部件：门板、门轴、门闩、门框。怪物分工明确：有的只砸门，有的专杀你。破门之后，只有用药、封门或逃跑。\n\n撑过第 9 夜，或者集齐 3 件无名道具，大门才会打开。\n\n九职业任选，四维总和 24。NPC 分善良与中立，只在白天出现。数值由面板结算，你只负责叙事。",
   "first_messages": [
     "开场白/0.md"
   ],
